@@ -1,8 +1,8 @@
-# Speech Synthesis App
+# Text to Voice App
 
-Text to speech app.
+Enter any text and the app will say it for you.
 
-Live version: https://speech-synthesis-app.herokuapp.com
+Live version: https://text-to-voice.herokuapp.com
 
 ## Tech stack
 * Node
@@ -15,8 +15,8 @@ Live version: https://speech-synthesis-app.herokuapp.com
 ## Getting started
 
 ```sh
-git clone https://github.com/PiotrBerebecki/speech-synthesis-app.git
-cd speech-synthesis-app
+git clone https://github.com/PiotrBerebecki/text-to-voice.git
+cd text-to-voice
 npm install
 
 #1. Start the development server with Browsersync reloading
