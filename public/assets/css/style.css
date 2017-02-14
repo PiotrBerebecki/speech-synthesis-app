@@ -76,6 +76,7 @@ h1 {
 
 textarea {
   height: 20rem;
+  resize: none;
 }
 
 input[type="select"] {

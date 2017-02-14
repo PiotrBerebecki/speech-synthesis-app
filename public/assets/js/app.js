@@ -1,35 +1,35 @@
-const msg = new SpeechSynthesisUtterance();
+console.clear();
+
+const currentText = new SpeechSynthesisUtterance();
 let voices = [];
 const voicesDropdown = document.querySelector('[name="voice"]');
 const options = document.querySelectorAll('[type="range"], [name="text"]');
 const speakButton = document.querySelector('#speak');
 const stopButton = document.querySelector('#stop');
 const resetButton = document.querySelector('#reset');
-msg.text = document.querySelector('[name="text"]').value;
+currentText.text = document.querySelector('[name="text"]').value;
 
 function populateVoices() {
   voices = this.getVoices();
   voicesDropdown.innerHTML = voices
-  .filter(voice => voice.lang.includes('en'))
   .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
   .join('');
 }
 
 function setVoice() {
-  msg.voice = voices.find(voice => voice.name === this.value);
+  currentText.voice = voices.find(voice => voice.name === this.value);
   toggle();
 }
 
 function toggle(startOver = true) {
   speechSynthesis.cancel();
   if (startOver) {
-    speechSynthesis.speak(msg);
+    speechSynthesis.speak(currentText);
   }
 }
 
 function setOption() {
-  // console.log(this.name, this.value);
-  msg[this.name] = this.value;
+  currentText[this.name] = this.value;
   toggle();
 }
 
@@ -39,10 +39,10 @@ function resetApp() {
     if (option.type === 'range') {
       option.value = 1;
     } else {
-      option.textContent = 'Thank you for checking out my app 👍';
+      option.textContent = 'Thank you for visiting me 👍';
     }
 
-    let event = new Event('change');
+    const event = new Event('change');
     option.dispatchEvent(event);
   });
 }
@@ -51,5 +51,5 @@ speechSynthesis.addEventListener('voiceschanged', populateVoices);
 voicesDropdown.addEventListener('change', setVoice);
 options.forEach(option => option.addEventListener('change', setOption));
 speakButton.addEventListener('click', toggle);
-stopButton.addEventListener('click', () => toggle(false));
+stopButton.addEventListener('click', toggle);
 resetButton.addEventListener('click', resetApp);
