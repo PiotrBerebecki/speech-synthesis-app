@@ -1,10 +1,8 @@
-# Vanilla JavaScript App Boilerplate
+# Speech Synthesis App
 
-App demonstrating ...
+Text to speech app.
 
-Live version: https://REPO.herokuapp.com
-
-<img src="./src/graphics/screencast.gif" width="275px" height="auto">
+Live version: https://speech-synthesis-app.herokuapp.com
 
 ## Tech stack
 * Node
@@ -17,8 +15,8 @@ Live version: https://REPO.herokuapp.com
 ## Getting started
 
 ```sh
-git clone https://github.com/PiotrBerebecki/REPO.git
-cd REPO
+git clone https://github.com/PiotrBerebecki/speech-synthesis-app.git
+cd speech-synthesis-app
 npm install
 
 #1. Start the development server with Browsersync reloading
